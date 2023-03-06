@@ -18,3 +18,12 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+/* ---------------------------- */
+img {
+  margin-right: 20px;
+}
+.countrysName {
+  display: flex;
+  align-items: center;
+}
