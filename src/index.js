@@ -45,13 +45,18 @@ countryInputEl.addEventListener(`input`,
                         populationCountry: dataInd.population
                     };
                    
-                    countryListEl.innerHTML = `<h3 class="countrysName"><img src=${valuesOfCountry.flagCountry} alt=0 width=40  height=40>${valuesOfCountry.countryName}</h3><p>Capital:${valuesOfCountry.capitalCountry}</p><p>Population:${valuesOfCountry.populationCountry}</p><p>Languages:${valuesOfCountry.languageCountry}</p>`;
+                    countryListEl.innerHTML = `<h3 class="countrysName">
+                        <img src=${valuesOfCountry.flagCountry} alt="flag" width=40  height=40>${valuesOfCountry.countryName}</h3>
+                        <p>Capital:${valuesOfCountry.capitalCountry}</p>
+                        <p>Population:${valuesOfCountry.populationCountry}</p>
+                        <p>Languages:${valuesOfCountry.languageCountry}</p>`;
                     return;
                 }
                 if (data.length < 10 && data.length > 1) {
                     let result = ``;
                     for (let i = 0; i < data.length; i++) {
-                        result += `<h3 class="countrysName"><img src=${data[i].flags.svg} alt=0 width=40  height=40>${data[i].name.official}</h3>`;
+                        result += `<h3 class="countrysName">
+                            <img src=${data[i].flags.svg} alt="flag" width=40  height=40>${data[i].name.official}</h3>`;
                     }
                     countryListEl.innerHTML = result;
                     return;
