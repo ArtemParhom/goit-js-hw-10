@@ -17,11 +17,13 @@ countryInputEl.addEventListener(`input`,
         const trimInput = input.trim();
         
         if (!trimInput) {
+            countryListEl.innerHTML = '';
            return;
         };
         fetchCountries(`${trimInput}`)
             .then(data => {
                 if (data.length > 10) {
+                    countryListEl.innerHTML = '';
                     Notify.info("Too many matches found. Please enter a more specific name.")
                     return;
                 }
@@ -35,9 +37,9 @@ countryInputEl.addEventListener(`input`,
                     return;
                 }
                 if (data.length < 10 && data.length > 1) {
-                    var result = ``;
+                    let result = ``;
                     
-                    for (var i = 0; i < data.length; i++) {
+                    for (let i = 0; i < data.length; i++) {
                         result += `<h3 class="countrysName"><img src=${data[i].flags.svg} alt=0 width=40  height=40>${data[i].name.official}</h3>`;
                     }
                     countryListEl.innerHTML = result;
