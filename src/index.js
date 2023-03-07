@@ -32,7 +32,7 @@ countryInputEl.addEventListener(`input`,
                     const dataInd = data[0];
 
                     valuesOfCountry = { countryName: dataInd.name.official, capitalCountry: dataInd.capital[0], flagCountry: dataInd.flags.svg, languageCountry: dataInd.languages[Object.keys(dataInd.languages)[0]], populationCountry: dataInd.population };
-
+                    console.log(111);
                     countryListEl.innerHTML = `<h3 class="countrysName"><img src=${valuesOfCountry.flagCountry} alt=0 width=40  height=40>${valuesOfCountry.countryName}</h3><p>Capital:${valuesOfCountry.capitalCountry}</p><p>Population:${valuesOfCountry.populationCountry}</p><p>Languages:${valuesOfCountry.languageCountry}</p>`;
                     return;
                 }
@@ -47,7 +47,7 @@ countryInputEl.addEventListener(`input`,
                 }
             })
             .catch(error => {
-                countryListEl.innerHTML = '';
+                // countryListEl.innerHTML = '';
                 Notify.failure(`Oops, there is no country with that name`); 
         });     
     }, DEBOUNCE_DELAY)
