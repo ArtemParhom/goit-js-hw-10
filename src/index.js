@@ -15,6 +15,10 @@ countryInputEl.addEventListener(`input`,
     debounce((evn) => {
         const input = evn.target.value;
         const trimInput = input.trim();
+        
+        if (!trimInput) {
+           return;
+        };
         fetchCountries(`${trimInput}`)
             .then(data => {
                 if (data.length > 10) {
