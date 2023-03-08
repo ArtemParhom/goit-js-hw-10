@@ -36,27 +36,27 @@ countryInputEl.addEventListener(`input`,
                 if (data.length === 1) {
 
                     const dataInd = data[0];
-
+                    
                     const valuesOfCountry = {
                         countryName: dataInd.name.official,
                         capitalCountry: dataInd.capital[0],
                         flagCountry: dataInd.flags.svg,
-                        languageCountry: dataInd.languages[Object.keys(dataInd.languages)[0]],
+                        languageCountry: dataInd.languages,
                         populationCountry: dataInd.population
                     };
-                   
+                    
                     countryListEl.innerHTML = `<h3 class="countrysName">
-                        <img src=${valuesOfCountry.flagCountry} alt="flag" width=40  height=40>${valuesOfCountry.countryName}</h3>
-                        <p>Capital:${valuesOfCountry.capitalCountry}</p>
-                        <p>Population:${valuesOfCountry.populationCountry}</p>
-                        <p>Languages:${valuesOfCountry.languageCountry}</p>`;
+                        <img src=${valuesOfCountry.flagCountry} alt="flag" width=40  height=40> ${valuesOfCountry.countryName}</h3>
+                        <p>Capital: ${valuesOfCountry.capitalCountry}</p>
+                        <p>Population: ${valuesOfCountry.populationCountry}</p>
+                        <p>Languages: ${Object.values(valuesOfCountry.languageCountry).join(`, `)}</p>`;
                     return;
                 }
                 if (data.length < 10 && data.length > 1) {
                     let result = ``;
                     for (let i = 0; i < data.length; i++) {
                         result += `<h3 class="countrysName">
-                            <img src=${data[i].flags.svg} alt="flag" width=40  height=40>${data[i].name.official}</h3>`;
+                            <img src=${data[i].flags.svg} alt="flag" width=40  height=40> ${data[i].name.official}</h3>`;
                     }
                     countryListEl.innerHTML = result;
                     return;
